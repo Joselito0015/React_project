@@ -1,0 +1,26 @@
+
+.cart-container{
+    /* center the container with shadow*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    /* set the width and height of the container */
+    width: 80%;
+    height: 600px;
+    /* set the background color of the container */
+    background-color: rgb(243, 243, 243);
+    border-radius: 20px;
+    margin-top: 10px;
+    
+
+}
+
+.cart-section{
+    /* center the container with shadow*/
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

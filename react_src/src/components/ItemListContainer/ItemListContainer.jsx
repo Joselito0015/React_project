@@ -4,53 +4,54 @@ import './ItemListContainer.css'
 import { useState, useEffect } from 'react'
 import ItemDetails from '../ItemDetails/ItemDetails';
 import { useParams } from 'react-router-dom'
-
+import { FidgetSpinner } from 'react-loader-spinner' 
 
 function ItemListContainer (props) {
     const [products,setProducts] = useState([])
+    const [loading,setLoading] = useState(true)
     const {id,category} = useParams()
 
     async function getProducts(){
         const response = await getData()
-        console.log(response)
         
+        setLoading(false)
+
         //match the id with the id in the url
         if (!id & !category){ 
             setProducts(response)
         }
 
-
         if (id){
             const filteredProducts = response.filter((item)=> item.id === Number(id))
-            console.log(filteredProducts)
             setProducts(filteredProducts)
         }
         
         if (category){
             const filteredProducts = response.filter((item)=> item.category == category)
-            console.log(filteredProducts)
             setProducts(filteredProducts)
         }
-
-
     }
 
     useEffect(()=>{
+        setLoading(true)
         getProducts()
     },[id,category])
-
-    
-
-
 
     return (
         <div className='container'>
             <h1 className='title'>Listado de Productos</h1>
+            {loading ? 
+            <div className="flex-container">
+            <FidgetSpinner backgroundColor="#F4442E"/>
+            </div> 
+            :
             <div className="flex-container">
                 {products.map((item) => (
                     <ItemDetails  key={item.id} {...item}/>
                 ))}
             </div>
+            }
+            
         </div>
     
     );

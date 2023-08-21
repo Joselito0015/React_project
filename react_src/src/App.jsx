@@ -1,6 +1,8 @@
+import './App.css'
 import Navbar from './components/NavBar/NavBar'
-import CartWidget from './components/CartWidget/CarWidget'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import CartContainer from './components/CartContainer/CartContainer'
+import {CartContextProvider} from './context/context.cart'
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
@@ -9,19 +11,20 @@ function App() {
   return (
     
     <>
-      <BrowserRouter>
-        <Navbar> 
-          <CartWidget/>
-        </Navbar>      
-        <Routes>
-          <Route path="/" element={<ItemListContainer greeting="Welcome to Mouse Store"/>}/>
-          <Route path="/category/:category" element={<ItemListContainer greeting="Welcome to Mouse Store item category"/>}/>
-          <Route path="/item/:id" element={<ItemListContainer greeting="Welcome to Mouse Store item id"/>}/>
-          <Route path="*" element={404}/>
-        </Routes>
-        
-      </BrowserRouter>
-
+      <div className="body">
+        <CartContextProvider>
+          <BrowserRouter>
+            <Navbar/>
+              <Routes>
+                <Route path="/" element={<ItemListContainer />}/>
+                <Route path="/category/:category" element={<ItemListContainer />}/>
+                <Route path="/item/:id" element={<ItemListContainer/>}/>
+                <Route path="/cart" element={<CartContainer/>} />
+                <Route path="*" element={404}/>
+              </Routes>
+          </BrowserRouter>
+        </CartContextProvider>
+      </div>
     </>
   )
 }

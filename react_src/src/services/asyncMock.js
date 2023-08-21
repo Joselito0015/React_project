@@ -46,7 +46,7 @@ function getData() {
     setTimeout(() => {
       const date = new Date().toLocaleDateString;
       resolve(productos, date);
-    }, 500);
+    }, 2000);
   });
 }
 

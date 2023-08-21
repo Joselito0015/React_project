@@ -1,16 +1,4 @@
 /* Counter bar */
-.counter-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 0 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-}
-
 .Card {
   width: 300px;
   margin: 10px;

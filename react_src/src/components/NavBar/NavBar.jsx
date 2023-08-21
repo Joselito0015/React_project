@@ -1,6 +1,7 @@
 //react component for the navbar
 import './NavBar.css'
 import { Link } from 'react-router-dom';
+import CartWidget from '../CartWidget/CartWidget';
 
 function NavBar(props) {
     console.log(props.children)
@@ -20,7 +21,7 @@ function NavBar(props) {
             </Link>
 
             <div className="nav-cart">
-                {props.children}
+                <CartWidget/>
             </div>    
 
         </div>
