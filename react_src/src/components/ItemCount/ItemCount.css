@@ -19,7 +19,7 @@
   padding: 0 0px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #ae00ff;
+  background-color: #007bff;
   cursor: pointer;
   width: 100%;
   height: 40px;
@@ -27,4 +27,8 @@
   font-size: 16px;
   font-weight: 400;
   transition: all 0.3s ease-in-out;
+}
+
+.BuyBtn:hover {
+  background-color: #0056b3;
 }

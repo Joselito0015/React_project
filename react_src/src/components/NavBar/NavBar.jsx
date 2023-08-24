@@ -5,25 +5,22 @@ import CartWidget from '../CartWidget/CartWidget';
 
 function NavBar(props) {
     return (
-        <div className="navbar">
-            <Link to={'/'} className="nav-brand">
+            <div className="navbar">
+            <div className="navbar-logo">
                 <h2>Sport Store</h2>
-            </Link>
-            <Link to={'/'} className="nav-link">
-                <h2>Home</h2>
-            </Link>
-            <Link to={'/category/Futbol'}  className="nav-link">
-                <h2>Futbol</h2>
-            </Link>
-            <Link to={'/category/Basquet'} className="nav-link">
-                <h2>Basquet</h2>
-            </Link>
-
-            <div className="nav-cart">
+            </div>
+            <nav className="navbar-links">
+                <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/category/Futbol">Futbol</Link></li>
+                <li><Link to="/category/Basquet">Basquet</Link></li>
+                </ul>
+            </nav>
+            <div className="navbar-cart">
                 <CartWidget/>
-            </div>    
+            </div>
+            </div>
 
-        </div>
     );
 }
 

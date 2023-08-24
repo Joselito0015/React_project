@@ -5,15 +5,21 @@ function Item (props) {
   const {id, title, img, price, description,stock } = props;
   
   return (
-      <>
-      <div className='Card'>
-          <img width={500} src={img} alt="imagen" />
-          <h1>{title}</h1>
-          <h2>S/.{price} </h2>
-          <p>{description}</p>
-          <Link className='BuyBtn' to={`/item/${id}`}>Ver Producto</Link>
+    <>
+      <div className="ProductCard">
+        <div className="product-image-container">
+          <img className="product-image" src={img} alt="Imagen del producto" />
+        </div>
+        <div className="product-details">
+          <h2 className="product-title">{title}</h2>
+          <h3 className="product-price">S/.{price}</h3>
+          <p className="product-description">{description}</p>
+          <Link className="product-link" to={`/item/${id}`}>
+            Ver Producto
+          </Link>
+        </div>
       </div>
-      </>
+    </>
   );
 }
 

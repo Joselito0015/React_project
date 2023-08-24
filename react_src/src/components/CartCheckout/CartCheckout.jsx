@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { cartContext } from "../../context/context.cart";
 import { createOrder } from "../../services/firebase";
 import { useContext, useState } from "react";
+import "./CartCheckout.css";
+
 
 function CartCheckout() {
   const [buyer, setBuyer] = useState({
@@ -50,14 +52,15 @@ function CartCheckout() {
   }
 
   return (
-    <form>
-      <h2>Completa tus datos para completar la compra🛍</h2>
-
-      <div style={{ display: "flex", marginBottom: 8 }}>
-        <label htmlFor="lastname" style={{ width: "100px", marginRight: 4 }}>
+    <form className="checkout-form">
+      <h2 className="form-heading">🛍️ ¡Prepárate para completar tu compra! </h2>
+      <p> 🛒 Ingresa tus datos aquí para finalizar el proceso de compra.</p>
+      <div className="form-row">
+        <label className="form-label" htmlFor="firstname">
           Nombre
         </label>
         <input
+          className="form-input"
           value={buyer.firstname}
           name="firstname"
           type="text"
@@ -65,11 +68,12 @@ function CartCheckout() {
         />
       </div>
 
-      <div style={{ display: "flex", marginBottom: 8 }}>
-        <label htmlFor="lastname" style={{ width: "100px", marginRight: 4 }}>
+      <div className="form-row">
+        <label className="form-label" htmlFor="lastname">
           Apellido
         </label>
         <input
+          className="form-input"
           value={buyer.lastname}
           name="lastname"
           type="text"
@@ -77,9 +81,12 @@ function CartCheckout() {
         />
       </div>
 
-      <div style={{ display: "flex", marginBottom: 8 }}>
-        <label style={{ width: "100px", marginRight: 4 }}>Edad</label>
+      <div className="form-row">
+        <label className="form-label" htmlFor="age">
+          Edad
+        </label>
         <input
+          className="form-input"
           value={buyer.age}
           name="age"
           type="number"
@@ -88,15 +95,17 @@ function CartCheckout() {
       </div>
 
       <button
-        disabled={
-          !(buyer.firstname !== "" && buyer.lastname !== "" && buyer.age !== "")
-        }
+        className="form-button"
+        disabled={!(buyer.firstname !== "" && buyer.lastname !== "" && buyer.age !== "")}
         onClick={handleCheckout}
       >
         Confirmar Compra
       </button>
-      <button onClick={resetForm}>Cancelar</button>
+      <button className="form-button cancel-button" onClick={resetForm}>
+        Cancelar
+      </button>
     </form>
+
   );
 }
 
