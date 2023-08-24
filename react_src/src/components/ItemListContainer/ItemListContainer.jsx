@@ -1,5 +1,6 @@
 //item list container component for the item list 
-import getData from '../../services/asyncMock';
+// import getData from '../../services/asyncMock';
+import {getData} from '../../services/firebase';
 import './ItemListContainer.css'
 import { useState, useEffect } from 'react'
 // import ItemDetails from '../ItemDetails/ItemDetails';

@@ -1,4 +1,5 @@
-import getData from '../../services/asyncMock';
+// import getData from '../../services/asyncMock';
+import {getData,getProductData} from '../../services/firebase';
 import './ItemDetailContainer.css'
 import { useState, useEffect } from 'react'
 import ItemDetails from '../ItemDetails/ItemDetails';
@@ -18,12 +19,11 @@ function ItemDetailContainer (props) {
     const {id} = useParams()
 
     async function getProducts(){
-        const response = await getData()
-        
+        const response = await getProductData(id)
+        console.log(response)
         setLoading(false)
 
-        const filteredProducts = response.filter((item)=> item.id === Number(id))
-        setProduct(filteredProducts[0])
+        setProduct(response)
     }
 
     useEffect(()=>{
