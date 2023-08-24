@@ -26,7 +26,7 @@ function getData() {
       {
         title: "Shorts de baloncesto",
         id: 3,
-        stock: 3,
+        stock: 0,
         description: "Shorts transpirables para baloncesto",
         img: "/src/assets/img/shorts.jpeg",
         price: 150,

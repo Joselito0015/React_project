@@ -1,11 +1,20 @@
 //item list container component for the item list 
 import './ItemDetails.css'
 import ItemCount from '../ItemCount/itemCount'
-import { Link } from 'react-router-dom'
+import { cartContext } from '../../context/context.cart'
+import { useState, useEffect, useContext } from 'react'
+
+
 function ItemDetails (props) {
-    
+    const {cart,addToCart} = useContext(cartContext)
+    const [products,setProducts] = useState(props)
     const {id, title, img, price, description,stock } = props;
 
+    function handleCount(count){
+        addToCart(products,count)
+        console.log(cart)
+    }
+    
     return (
         <>
         <div className='Card'>
@@ -13,8 +22,9 @@ function ItemDetails (props) {
             <h1>{title}</h1>
             <h2>S/.{price} </h2>
             <p>{description}</p>
-            <ItemCount stock={stock}/>
-            <Link className='BuyBtn' to={`/item/${id}`}>Ver producto</Link>
+
+            <ItemCount handleCount={handleCount} stock={stock}/>            
+            
         </div>
         </>
     );
