@@ -7,8 +7,6 @@ import "./CartContainer.css";
 
 function CartContainer() {
   const { cart, removeItem } = useContext(cartContext);
-  console.log(cart);
-  console.log("gaaaa");
 
   const totalPurchase = cart.reduce(
     (total, item) => total + item.price * item.count,

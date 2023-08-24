@@ -21,7 +21,6 @@ function CartContainer () {
     return (
         <>
         <div className='CartContainer'>
-            <h1>Carrito de Compras</h1>
             <div className='Cart'>
                 {cart.map((item)=>{
                     return (

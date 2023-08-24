@@ -7,14 +7,16 @@ import { useState, useEffect, useContext } from 'react'
 
 function ItemDetails (props) {
     const {cart,addToCart} = useContext(cartContext)
-    const [products,setProducts] = useState(props)
+    const products=props
+    const [buying,setBuying] = useState(false)
     const {id, title, img, price, description,stock } = props;
 
     function handleCount(count){
         addToCart(products,count)
+        setBuying(true)
         console.log(cart)
     }
-    
+
     return (
         <>
         <div className='Card'>
@@ -22,9 +24,17 @@ function ItemDetails (props) {
             <h1>{title}</h1>
             <h2>S/.{price} </h2>
             <p>{description}</p>
-
-            <ItemCount handleCount={handleCount} stock={stock}/>            
             
+            {buying ? 
+                (
+                    <div className="flex-container">
+                        <p>Gracias por su compra 🥳</p>
+                    </div>
+                ):(
+                 <ItemCount handleCount={handleCount} stock={stock}/>            
+                 )
+            }
+
         </div>
         </>
     );

@@ -10,14 +10,13 @@ function ItemCount (props) {
         if (count < stock){
         setCount(count+1)
         }
-        props.handleCount(count)
     }
 
     function decrement(){
         if (count > 0){
         setCount(count-1)
         }
-        props.handleCount(count)
+        
     }
 
     return (
