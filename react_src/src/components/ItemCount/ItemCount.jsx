@@ -24,9 +24,9 @@ function ItemCount (props) {
             <div className='counter-bar'>
                 <button onClick={decrement}>-</button>
                 <p>{count}</p>
-                <button onClick={increment}>+</button>               
+                <button onClick={increment} disabled={(count===stock)}>+</button>               
             </div>
-            <button  onClick={()=>{props.handleCount(count)}} className='BuyBtn'> Comprar producto</button>
+            <button  disabled={(count===0)}  onClick={()=>{props.handleCount(count)}} className='BuyBtn'> Comprar producto</button>
         </>
         );
 }

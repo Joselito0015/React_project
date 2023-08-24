@@ -32,3 +32,13 @@
 .BuyBtn:hover {
   background-color: #0056b3;
 }
+
+.BuyBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.counter-bar button:disabled{
+  background-color: #ccc;
+  cursor: not-allowed;
+}
