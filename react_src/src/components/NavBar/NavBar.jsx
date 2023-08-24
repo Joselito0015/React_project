@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget';
 
 function NavBar(props) {
-    console.log(props.children)
     return (
         <div className="navbar">
             <Link to={'/'} className="nav-brand">
